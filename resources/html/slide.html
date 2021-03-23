@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Slide</title>
+    <style type="text/css">
+        .slideshow{
+            width:500px;
+            margin:auto;
+            position:relative;
+        }
+        .mySlide{
+            width:500px;
+            display:none;
+        }
+        .dot{
+            border-radius:50%;
+            background-color:#bbb;
+            height: 13px;
+            width:13px;
+            display:inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover{
+            background-color:#717171;
+            cursor:pointer;
+        }
+        .mySlide{
+            animation-name:fade;
+            animation-duration: 3s;
+        }
+        @keyframes fade{
+            from{opacity: 4;}
+            to{opacity:1;}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <div class="mySlide">
+            <img src="../img/bg-login.jpg" width="100%">
+            <div class="slide-text">
+                Slide 1!!!
+            </div>
+        </div>
+        
+        <div class="mySlide">
+            <img src="../img/bg-login.jpg" width="100%">
+            <div class="slide-text">
+                Slide 2!!!
+            </div>
+        </div>
+        
+        <div class="mySlide">
+            <img src="../img/bg-login.jpg" width="100%">
+            <div class="slide-text">
+                Slide 3!!!
+            </div>
+        </div>
+        <div class="pageslide" style="text-align: center;">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+        <div class="date">
+            <p id="date"></p>
+        </div>
+    </div>
+    <div id="edit-infomation">
+        <div id="bg-nenedit">
+            
+        </div>
+        <div id="login">
+                <h4 style="  text-align:center;">Chỉnh sửa thông tin</h4>
+            <div class="edit-user">
+                <div id="edit-img">
+                    <img src="" id="img-avatar"width="130px" height="130px" style="border-radius:50%;"><br/><br/>
+                    <input type="file" id="file-avatar"style="width:200px;"/>
+                </div>
+                <div id="info-edit">
+                    <input type="text" placeholder="First Name"/>
+                    <input type="text" placeholder="Last Name"/><br/>
+                   <input type="radio" class="gender"value="gender" name="gender"> Nam
+                    <input type="radio" class="gender"value="gender" name="gender"> Nu<br/>
+                    <i class="fa fa-map-marker-alt"></i><input type="text" placeholder="Place"/><br/>
+                    <i class="fas fa-phone-alt"></i><input type="number" placeholder="Phone"/><br/>
+                    <i class="fa fa-envelope"></i><input type="email" placeholder="Email"/><br/>
+                    <div><button id="huy" onclick="opendk()">Hủy</button>
+                    <input type="submit" id="btn-luu" value="Lưu"></div>
+                </div>
+            </div>    
+            
+        </div>
+    
+    </div>
+    <script>
+        var slideIndex;
+        function showSlides(){
+            var slides= document.getElementsByClassName("mySlide");
+            var dots= document.getElementsByClassName("dot");
+            var i;
+            for( i=0; i<slides.length; i++)
+            {
+                slides[i].style.display="none";
+            }
+            for( i=0; i< dots.length; i++)
+            {
+                dots[i].className= dots[i].className.replace(" active"," ");
+            }
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].className += " active";
+            //chuyen silde tiep
+            slideIndex++;
+            if(slideIndex > slides.length - 1)
+            {
+                slideIndex=0;
+            }
+            setTimeout(showSlides,5000);
+
+        }
+        showSlides(slideIndex=0);
+        function currentSlide(n){
+            showSlides( slideIndex = n);
+        }
+        var today= new Date();
+        var date= today.getDate()+"-"+(today.getMonth()+1)+"-"+today.getFullYear();
+        document.getElementById("date").innerHTML=date;
+        function opendk(){
+           
+            document.getElementById('edit-infomation').style.display="none";
+        }
+    </script>
+</body>
+</html>

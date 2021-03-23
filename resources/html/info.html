@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css"/>
+   <link rel="stylesheet" type="text/css" href="../css/info.css"/>
+   <link href="../css/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet"/>
+    <title>Trang cá nhân</title>
+</head>
+<body>
+    <div id="ed-infomation">
+        <div id="bg-nenedit">
+            
+        </div>
+        <div id="edit-infomation">
+                <h4 style="  text-align:center;">Chỉnh sửa thông tin</h4>
+            <div class="edit-user">
+                <div id="edit-img">
+                    <img src="" id="img-avatar"width="130px" height="130px" style="border-radius:50%;"><br/><br/>
+                    <input type="file" id="file-avatar"style="width:200px;"/>
+                </div>
+                <div id="info-edit">
+                    <input type="text" placeholder="First Name"/>
+                    <input type="text" placeholder="Last Name"/><br/>
+                   <input type="radio" class="gender"value="gender" name="gender"> Nam
+                    <input type="radio" class="gender"value="gender" name="gender"> Nu<br/>
+                    <i class="fa fa-map-marker-alt"></i><input type="text" placeholder="Place"/><br/>
+                    <i class="fas fa-phone-alt"></i><input type="number" placeholder="Phone"/><br/>
+                    <i class="fa fa-envelope"></i><input type="email" placeholder="Email"/><br/>
+                    <div><button id="huy" onclick="closeinfomation()">Hủy</button>
+                    <input type="submit" id="btn-luu" value="Lưu"></div>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <header>
+        <!--Header đầu-->
+        <div class="head">
+            <h1>FoodMod.vn</h1>
+            <!--THanh tìm kiếm-->
+            <div id="search">
+                <i class="fa fa-search"></i>
+                <input type="search" placeholder="search"/>
+            </div>
+            <!--Nút đăng --- thông báo và ảnh đại diện-->
+            <div class="post">
+                <a href="#"><i class="fa fa-plus-circle"> Đăng</i></a>
+                <a href="#"><i class="fa fa-bell"> Thông báo</i></a>
+                <img src=""width="50px" height="50px" style="border-radius:50%;">
+            </div>
+        </div>
+        <!--Thanh menu-->
+        <nav>
+            <div id="menu">
+                <ul>
+                    <li id="home"><a href="index.html"id="home">Trang chủ</a></li>
+                    <li><a href="#">Bài viết</a></li>
+                    <li><a href="info.html">Trang cá nhân</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <!--ẢNh bìa-->
+        <div class="avatar">
+            <p> <i class="fa fa-image"></i>  Thêm ảnh bìa</p>
+        </div>
+        <!--THanh cá nhân-->
+        <div class="username">
+            <!--Tên và ảnh của user-->
+            <div id="username">
+                <img src="../img/register.jpg" width="130px"  height="130px" style="margin-right:20px;border-radius:50%;"/>
+                <h4 id="first-name">User</h4><h4 id="last-name">Name</h4>
+            </div>
+            <!--Nút sửa thông tin và btn Login out-->
+            <div id="edit-info">
+                <button id="btn-edit" onclick="edinfo()">Sửa thông tin</button>
+                <button id="btn-loginout"><a href="login.html"> <i class="fa fa-sign-out-alt"></i></a></button>
+            </div>
+            <!-- Nút đăn bài viết-->
+            <div id="post">
+                <button id="btn-post"><i class="fa fa-plus-circle"></i>Đăng</button>
+            </div>
+        </div>
+        <!--Thông tin cá nhân user-->
+        <div class="content-section">
+            <div id="info">
+                <div class="gender"><i class="fas fa-venus-mars" style="padding-right:4%;"></i><span >Nam</span></div>
+                <div class="place"><i class="fa fa-map-marker-alt"style="padding-right:7%;"></i><span>HaNoi</span></div>
+                <div class="phone"><i class="fas fa-phone-alt"></i><span>0123456789</span></div>
+                <div class="email"><i class="fa fa-envelope"></i><span>vlxx@gmail.com</span></div>
+            </div>
+            <!--Bài Post-->
+            <div class="content">
+                <div class="khung-post">
+                <!--Ảnh và ngày post bài-->
+                    <div class="grid-content">
+                        <div id="img-user">
+                            <img src="../img/content.jpg" width="70px" height="70px" style="border-radius:50%;">
+                        </div>
+                        <div id="first-name">
+                            <h6 id="first-name">User</h6>
+                        </div>
+                        <div id="last-name">
+                            <h6 id="last-name">Name</h6>
+                        </div>
+                        <div id="date">
+                            DD/MM/YYYY
+                        </div>
+                    </div>
+                    <!--Nút sửa xóa bài viết-->
+                    <div class="add">
+                        <i class="fa fa-ellipsis-h"></i>
+                        <div class="edit-del">
+                            <div id="edit">
+                                <i class="fa fa-edit"> Edit</i>
+                            </div>
+                            <div id="del">
+                                <i class="fa fa-trash"> Delete</i>
+                            </div>
+                        </div>
+                    </div>
+                    <!---Noi dung bai post-->
+                    <div class="content-post">
+                        <div class="img-post">
+                            <a href="#"><img src="../img/content-post.jpg" width="300px" height="200px" style="border-radius:5px;"></a>
+                        </div>
+                        <div class="title">
+                            <a href="#"><h2>ABC</h2></a>
+                        </div>
+                        <div class="danhgia">
+                            gia sao
+                        </div>
+                        <div class="place">
+                            <i class="fa fa-map-marker-alt"></i><span class="span-post">ABCDHFLK</span>
+                        </div>
+                        <div class="phone">
+                            <i class="fas fa-phone-alt"></i><span class="span-post">ABCDHFLK</span>
+                        </div>
+                        <div class="time">
+                            <i class="fa fa-clock"></i><span class="span-post">ABCDHFLK</span>
+                        </div>
+                    </div>
+                </div>
+                <!----------------------------------->
+                    <div class="khung-post">
+                <!--Ảnh và ngày post bài-->
+                    <div class="grid-content">
+                        <div id="img-user">
+                            <img src="../img/content.jpg" width="70px" height="70px" style="border-radius:50%;">
+                        </div>
+                        <div id="first-name">
+                            <h6 id="first-name">User</h6>
+                        </div>
+                        <div id="last-name">
+                            <h6 id="last-name">Name</h6>
+                        </div>
+                        <div id="date">
+                            DD/MM/YYYY
+                        </div>
+                    </div>
+                    <!--Nút sửa xóa bài viết-->
+                    <div class="add">
+                        <i class="fa fa-ellipsis-h"></i>
+                        <div class="edit-del">
+                            <div id="edit">
+                                <i class="fa fa-edit"> Edit</i>
+                            </div>
+                            <div id="del">
+                                <i class="fa fa-trash"> Delete</i>
+                            </div>
+                        </div>
+                    </div>
+                    <!---Noi dung bai post-->
+                    <div class="content-post">
+                        <div class="img-post">
+                            <a href="#"><img src="../img/content-post.jpg" width="300px" height="200px" style="border-radius:5px;"></a>
+                        </div>
+                        <div class="title">
+                            <a href="#"><h2>ABC</h2></a>
+                        </div>
+                        <div class="danhgia">
+                            gia sao
+                        </div>
+                        <div class="place">
+                            <i class="fa fa-map-marker-alt"></i><span class="span-post">ABCDHFLK</span>
+                        </div>
+                        <div class="phone">
+                            <i class="fas fa-phone-alt"></i><span class="span-post">ABCDHFLK</span>
+                        </div>
+                        <div class="time">
+                            <i class="fa fa-clock"></i><span class="span-post">ABCDHFLK</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+                    <ul class="pagination">
+                        <li><a href="#" class="page-link">&laquo;</a></li>
+                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                        <li><a href="#" class="page-link">2</a></li>
+                        <li><a href="#" class="page-link">3</a></li>
+                        <li><a href="#" class="page-link">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!------------------------------------>
+        </div>
+    </section>
+    <footer>
+        <div class="detail">
+            <h1 >FoodMod.vn</h1>
+            <p >&copy; Nhóm 8 - LTMT2 K10</p>
+            <p ><i class="fab fa-facebook"></i>
+                <i class="fa fa-envelope"></i>
+                <i class="fab fa-linkedin"></i></p>
+        </div>
+    </footer>
+    <script src="../javascript/jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        //Updload file và show file
+         $("#file-avatar").change(function(){
+          var file = $(this)[0].files[0];
+          console.log(file.type);
+          var patterImage = new RegExp("image/*");
+          if(!patterImage.test(file.type)) {
+                  alert("Please choose image");
+          } else {
+                  var fileReader = new FileReader();
+                  fileReader.readAsDataURL(file);
+                  fileReader.onload = function(e) {
+                          $("#img-avatar").attr("src",e.target.result);
+                  }
+          }
+  });
+  //HUy
+  
+    </script>
+    <script>
+        function closeinfomation(){
+           
+           document.getElementById('ed-infomation').style.display="none";
+       }
+       function edinfo(){
+        document.getElementById('ed-infomation').style.display="block";
+       }
+    </script>
+</body>
+</html>
