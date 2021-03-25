@@ -21,17 +21,17 @@
                         <a href="<?php echo e(route('chi-tiet',$p->id)); ?>"> <img src="upload/img_post/<?php echo e($p->image); ?>" class="anh"/>
                             <strong style="font-size: 25px; text-align:center"><?php echo e($p->title); ?></strong>
                         </a><br>
-                        <span class="rating">
-                            <?php for($i = 1; $i <= 5; $i++): ?>
-                                <i class="fa fa-star" style="color:#999"></i>
-                            <?php endfor; ?>
-                        </span>                                              
+                        
+                            <i class="far fa-calendar-minus"></i> <?php echo e($p->created_at); ?>   
+
+                        
+                                                           
                     </div>
                         <div style="width: 700px;">
                         <article>
                             <span class="p-content"><?php echo e($p->content); ?></span>
                         </article>
-                        <p><?php echo e($p->created_at); ?></p>
+                        
                         
                         <hr>
                     </div>

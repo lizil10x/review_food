@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 use App\User;
@@ -139,7 +140,7 @@ class AdminController extends Controller
         $post = Post::orderBy('id','DESC')->get();
         $post = Post::all();
        return view('admin.post.list',['post'=>$post]);
-   }
+    }
     // get post
     public function getAddPost(){
         return view('admin.post.add');
@@ -175,40 +176,10 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Đăng bài thành công');
     }
 
-    //get edit post
-    public function getEditPost($id){
-    // $comment = Comment::all();
-        $post = Post::find($id);
-        return view('admin/post/edit',['post'=>$post]);
-    }
+    
 
-    //post edit post
-    public function postEditPost(Request $request, $id ){
-        $post = Post::find($id);
-
-        $this->validate($request,[
-            'title'=>'required|min:10',
-            'content'=>'required|min:10',
-        ],
-        [   
-            'title.required'=>'Bạn chưa nhập tiêu đề',
-            'title.min'=>'Tiêu đề phải lớn hơn 10 kí tự.',
-            'content.required'=>'Bạn chưa nhập nội dung',
-            'content.min'=>'Nội dung phải lớn hơn 10 ký tự',
-        ]);
-
-        $post->title = $request->title;
-        $post->content = $request->content;
-
-        if($request->hasFile('image')){
-            $file = $request-> file('image');
-            $name = $file->getClientOriginalName();
-            $file->move("upload/img_post",$name);
-            $post->image= $file -> getClientOriginalName();     
-        }
-        $post->save();
-        return redirect('admin/post/edit/'.$id)->with('message','Sửa thành công');
-    }
+    
+    //duyet bai
     public function getDuyetPost($id){
         $post = Post::find($id);
         if($post->status == 0){
@@ -217,9 +188,22 @@ class AdminController extends Controller
         $post->save();
         return redirect('admin/post/list');
     }
-    public function Userdelete_post($id){
+    //xoa bai
+    public function delete_post($id){
         $post = Post::find($id);
         $post->delete();
         return redirect()->back();
     }
+    //list commetn
+    public function getListComment(){
+        $comment = Comment::orderBy('id','DESC')->get();
+        $comment = Comment::all();
+       return view('admin.comment.list',compact('comment'));
+   }
+   //xoa comment
+   public function getDeleteComment($id){
+    $comment = Comment::find($id);
+    $comment->delete();
+   return redirect()->back();
+   }
 }

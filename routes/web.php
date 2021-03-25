@@ -37,15 +37,19 @@ Route::post('trang-ca-nhan/{id}', 'UserController@postInfo')->name('postInfo');
 //dang bai
 Route::get('dang-bai-viet','PostController@getPost')->name('getpost');
 Route::post('dang-bai-viet','PostController@post')->name('post');
-//Route::get('post/{id}','PostController@load')->name('posts');
+
+//xoa bai
+Route::get('delete/{id}','PostController@Userdelete_post')->name('deletepost');
+
 	
 //content post
 Route::get('chi-tiet/{id}','PageController@getContentPost')->name('chi-tiet');
 Route::get('Edit-post/{id}', 'PostController@getUserEditPost')->name('Edit-Post');
+Route::post('edit/{id}','PostController@postEditPost')->name('postEdit');
+
 //comment
 Route::post('comment/{id}','CommentController@postComment')->name('postcomment');
-//rating
-Route::post('/danh-gia{id}','CommentController@saveRating')->name('postRate');
+
 
 //group admin
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){	
@@ -74,21 +78,27 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 		Route::post('add','AdminController@post');
 
 		Route::get('edit/{id}','AdminController@getEditPost')->name('EditPost');
-		Route::post('edit/{id}','AdminController@postEditPost');
+		
 
 		Route::get('delete/{id}','AdminController@delete_post');
 		Route::get('duyet/{id}','AdminController@getDuyetPost');
 
 	});
+	
+	//commetn
+	Route::group(['prefix'=>'comment'],function(){
+		Route::get('list','AdminController@getListComment');
+		Route::get('delete/{id}','AdminController@getDeleteComment');
+	});
 });
 
-Route::get('delete/{id}','AdminController@Userdelete_post')->name('deletepost');
 
 
-//Route::get('search',[
-	//'as'=>'search',
-	//'uses'=>'PageController@getSearch'
-//]);
+
+Route::get('search',[
+	'as'=>'search',
+	'uses'=>'PageController@getSearch'
+]);
 Route::get('/',[
 	'as'=>'trang-chu',
 	'uses'=>'PageController@Index'

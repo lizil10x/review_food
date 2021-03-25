@@ -2,7 +2,7 @@
 <div class="post-cnt">
     <h3>Đăng bài viết</h3>
     <div class="form-content">
-        <form action="<?php echo e(route('Edit-Post', $post->id)); ?>"  method="POST" enctype="multipart/form-data">
+        <form action="<?php echo e(route('postEdit', $post->id)); ?>"  method="POST" enctype="multipart/form-data">
             <?php if(count($errors)>0): ?>   
                 <div class="alert alert-danger">
                     <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

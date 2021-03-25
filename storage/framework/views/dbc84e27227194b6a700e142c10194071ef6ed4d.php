@@ -41,7 +41,7 @@
                                 <?php
                                     $percenRate = ($arrayRatings['total'] / $demrating * 100);
                                 ?>
-                                    <div class="item_rating" style="display:flex; align-items:center;">   
+                                    <div class="item_rating" style="display:flex; align-items:center; color:#999">   
                                         <div style="width:10%; font-size:14px;">
                                             <?php echo e($key); ?> <span class="fa fa-star" style="color: #999;"></span>
                                         </div>

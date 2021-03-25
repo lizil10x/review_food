@@ -2,13 +2,12 @@
         
         <div class="head">
             <h1>FoodMod.vn</h1>
-            <div id="search">
-                <i class="fa fa-search"></i>
-                <input type="search" placeholder="Search"/>
-            </div>
+                <form role="search" method="get" action="{{('search')}}" id="search">
+                    <i class="fa fa-search"></i>
+                    <input type="search" name="key" placeholder="Search"/>  
+                </form>
             <div class="post">
                 <a href="{{route('getpost')}}"><i class="fa fa-plus-circle"> Đăng</i></a>
-                <a href="#"><i class="fa fa-bell"> Thông báo</i></a>
                 <!--<img src=""width="50px" height="50px" style="border-radius:50%;">  !-->
                 @if (Route::has('login'))
                     @auth

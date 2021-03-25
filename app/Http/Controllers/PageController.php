@@ -17,26 +17,23 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
+    {   
         $post = Post::where('status',1)->paginate(4);
-        return view('pages.trangchu',compact('post'));
-        
+        return view('pages.trangchu',compact('post'));   
     }
 
     public function getContentPost($id, Request $request){
         $comment = Comment::where('post_id',$id)->orderBy('id',"DESC")->paginate(5);
         $post = Post::with('user')->where('id', $request->id)->first();
         $rating = Comment::where('post_id',$id)->avg('vote');
+        $demrating = Comment::where('post_id',$id)->count('vote');
         $rating = round($rating,2);
         //dd($vote);
         //group rating
         
-
-        $demrating = Comment::where('post_id',$id)->count('vote');
         $ratingDashboard = Comment::groupBy('vote')
         ->where('post_id',$id)
-        ->select(DB::raw('count(vote) as total'), DB::raw('sum(vote) as sum'))
+        ->select(DB::raw('count(vote) as total'))
         ->addSelect('vote')
         ->get()->toArray();
        // dd($ratingDashboard);
@@ -55,8 +52,7 @@ class PageController extends Controller
                 {
                     if ( $item['vote'] === $i )
                     {
-                        $arrayRatings[$i] = $item;
-                        
+                        $arrayRatings[$i] = $item;  
                     }
                 }
             }
@@ -66,4 +62,8 @@ class PageController extends Controller
         return view('pages.post_content',compact('post','comment','rating','arrayRatings','demrating'));
     } 
     
+    public function getSearch(Request $request){
+        $post = Post::where('title','like','%'.$request->key.'%')->get();
+        return view('pages.search',compact('post'));
+    }
 }

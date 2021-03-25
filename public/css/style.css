@@ -29,7 +29,7 @@ h1{
     font-family:vivaldi;
     
 }
-#search {
+#search{
     width:350px;
     vertical-align:middle;
     white-space:nowrap;
@@ -505,7 +505,7 @@ button:active{
 .content-post{
     margin:25px 35px 10px 35px;
     display:grid;
-    grid-template-columns: 320px 100px 100px 100px 100px;
+    
     grid-template-rows: 45px 45px 45px 45px 45px;
 }
 .img-post{

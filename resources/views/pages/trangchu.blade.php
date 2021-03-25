@@ -22,17 +22,17 @@
                         <a href="{{ route('chi-tiet',$p->id) }}"> <img src="upload/img_post/{{$p->image}}" class="anh"/>
                             <strong style="font-size: 25px; text-align:center">{{$p->title}}</strong>
                         </a><br>
-                        <span class="rating">
-                            @for($i = 1; $i <= 5; $i++)
-                                <i class="fa fa-star" style="color:#999"></i>
-                            @endfor
-                        </span>                                              
+                        
+                            <i class="far fa-calendar-minus"></i> {{$p->created_at}}   
+
+                        
+                                                           
                     </div>
                         <div style="width: 700px;">
                         <article>
                             <span class="p-content">{{$p->content}}</span>
                         </article>
-                        <p>{{$p->created_at}}</p>
+                        
                         
                         <hr>
                     </div>

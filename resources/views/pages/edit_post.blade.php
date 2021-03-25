@@ -3,7 +3,7 @@
 <div class="post-cnt">
     <h3>Đăng bài viết</h3>
     <div class="form-content">
-        <form action="{{ route('Edit-Post', $post->id) }}"  method="POST" enctype="multipart/form-data">
+        <form action="{{ route('postEdit', $post->id) }}"  method="POST" enctype="multipart/form-data">
             @if(count($errors)>0)   
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $err)

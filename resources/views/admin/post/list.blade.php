@@ -6,7 +6,7 @@
 	<div class="block">
 	    <div class="navbar navbar-inner block-header">
 	        <div class="muted pull-left">Bài viết -> Danh sách</div>
-			<div class="pull-right"><span class="badge badge-info">Số công thức là {{ count($post) }}</span>
+			<div class="pull-right"><span class="badge badge-info">Số bài viết là {{ count($post) }}</span>
 			</div>
 	    </div>
 	    <div class="block-content collapse in">
@@ -43,12 +43,10 @@
 								<td class="center">
 									@if($p->status == 0)
 										<button class="btn btn-default btn-danger">
-											<a href="admin/post/duyet/{{ $p->id }}">Duyệt bài</a>
-											
+											<a href="admin/post/duyet/{{ $p->id }}">Duyệt bài</a>	
 										</button><br>
 										<button class="btn btn-default"><a href="admin/post/delete/{{ $p->id }}">Xóa</a></button>
 									@elseif($p->status == 1)
-										<button class="btn btn-default"><a href="admin/post/edit/{{ $p->id }}">Sửa</a></button><br>
 										<button class="btn btn-default"><a href="admin/post/delete/{{ $p->id }}">Xóa</a></button>
 									@endif
 									

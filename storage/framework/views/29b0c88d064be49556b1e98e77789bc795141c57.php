@@ -11,6 +11,9 @@
             <a href="admin/post/list"><i class="icon-chevron-right"></i>Quản lý bài viết</a>
         </li>
         <li>
+            <a href="admin/comment/list"><i class="icon-chevron-right"></i>Quản lý comment</a>
+        </li>
+        <li>
             <a href="<?php echo e(route('getInfo',Auth::user()->id)); ?>"><i class="icon-chevron-right"></i>Thông tin cá nhân</a>
         </li> 
         <li>

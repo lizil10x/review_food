@@ -98,7 +98,7 @@
                             <div class="img-post">
                                 <a href="{{ route('chi-tiet',$p->id) }}"><img src="../upload/img_post/{{$p->image}}" width="300px" height="200px" style="border-radius:5px;"></a>                               
                             </div>
-                            <div class="title">
+                            <div class="title" style="width: 500px;">
                                 <a href="{{ route('chi-tiet',$p->id) }}"><h2>{{$p->title}}</h2></a>
                                 <p><i class="fas fa-calendar-week"></i>{{$p->created_at}}</p>                               
                             </div>                   
